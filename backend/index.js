@@ -3,11 +3,15 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const { default: mongoose } = require("mongoose");
 const userRoutes = require('./routes/userRoutes');
+const cors = require('cors');
 const app = express();
 app.use(bodyParser.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// cors for dealing with dat from frontend
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());

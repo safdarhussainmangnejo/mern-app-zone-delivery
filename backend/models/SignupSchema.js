@@ -15,6 +15,8 @@ const signupSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    resetToken:{type:String},
+    expireToken:{type:Date},
     tokens: [
         {
             token: {
