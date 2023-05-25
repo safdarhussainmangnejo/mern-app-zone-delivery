@@ -27,13 +27,6 @@ const signupSchema = new mongoose.Schema({
     ]
 })
 
-signupSchema.pre("save", async function (next) {
-    if (this.isModified('password')) {
-        this.password = await bcrypt.hash(this.password, 5);
-    }
-    next();
-
-})
 
 signupSchema.methods.generateAuthToken = async function () {
     console.log("User ID: ,",this._id.toString(), "a Secred Key ", process.env.SECRET_KEY )
@@ -49,15 +42,4 @@ signupSchema.methods.generateAuthToken = async function () {
         console.log(err);
     }
 }
-
-// const insertData = async ()=>{
-//   const data = await mongoose.model('users', signupSchema).create({
-//       name:"Safdar Hussain",
-//       email:"safdarhussain@gmail.com",
-//       password:"Naudero"
-//   });
-//   console.log("User created : "+data)
-// }
-
-// insertData();
 module.exports = mongoose.model('users', signupSchema);

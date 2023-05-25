@@ -4,7 +4,6 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Signup from './components/Signup';
 import ProtectedRoute from './components/ProtectedRoute';
-import Logout from './components/Logout';
 import ResetPassword from './components/ResetPassword';
 import NewPassword  from './components/NewPassword';
 
@@ -14,7 +13,6 @@ function App() {
     <Routes>
       <Route element={<ProtectedRoute/>} >
         <Route path="/home"  element={<Home/>}/>
-        <Route path="/logout" element={<Logout/>}/> 
       </Route>
 
       <Route path="/" element={<Login/>}/>

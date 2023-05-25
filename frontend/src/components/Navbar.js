@@ -1,4 +1,3 @@
-import Logout from './Logout';
 import {useNavigate} from 'react-router-dom';
 function Navbar() {
     const navigate = useNavigate();
