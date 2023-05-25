@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 const signupSchema = require("../models/SignupSchema");
 const nodemailer = require('nodemailer')
 const crypto = require('crypto');
-require("dotenv").config();
+require("dotenv").config({path: "./vars/.env"});
 const sendgridTransport = require('nodemailer-sendgrid-transport');
 
 const transporter = nodemailer.createTransport(sendgridTransport({
