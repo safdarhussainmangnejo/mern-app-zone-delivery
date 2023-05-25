@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 require("dotenv").config();
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
 const app = express();
@@ -16,14 +16,15 @@ app.use(cors());
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
-
+// mongodb+srv://safdarhussainmangnejo:dsldb@cluster0.1kzpq4g.mongodb.net/zonedb?retryWrites=true&w=majority
+// mongodb+srv://safdarhussainmangnejo:dsldb@cluster0.1kzpq4g.mongodb.net/zonedb?retryWrites=true&w=majority"
 //connecting to database
 mongoose.connect(process.env.MONGODB_CONNECTION, {        
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
   .then(() => {
-    console.log("Connected to the database!");
+    console.log("Connected to the databasee!");
   })
   .catch(err => {
     console.log("Cannot connect to the database!", err);

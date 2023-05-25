@@ -54,7 +54,6 @@ exports.Signup= async (req, res) => {
       res.json(userData);
       // console.log("userData FROM GETDATA: " + userData);
     }
-    // res.send(userData);
     else {
       res.send("userData can't found")
     }
@@ -144,7 +143,7 @@ exports.Signup= async (req, res) => {
   exports.NewPassword = (req,res)=>{
     const newPassword = req.body.password
     const sentToken = req.body.token
-    console.log("Received Password and Token: ",newPassword, token)
+    console.log("Received Password and Token: ",newPassword, sentToken)
     signupSchema.findOne({resetToken:sentToken,expireToken:{$gt:Date.now()}})
     .then(user=>{
         if(!user){
