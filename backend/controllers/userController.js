@@ -151,7 +151,7 @@ exports.Signup= async (req, res) => {
             return res.send({status:422, error:"Try again session expired"})
         }
         console.log("User after reset time matched : ", user);
-        bcrypt.hash(newPassword,12).then(hashedpassword=>{
+        bcrypt.hash(newPassword,5).then(hashedpassword=>{
            user.password = hashedpassword
            user.resetToken = undefined
            user.expireToken = undefined
